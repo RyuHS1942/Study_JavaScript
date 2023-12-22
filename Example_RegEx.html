@@ -1,0 +1,39 @@
+<head>
+</head>
+<body>
+	<div>
+		<input type='text' id='inputEmail' ></input>
+		<button onclick='fnClickE();' >버튼</button>
+	</div>
+	<div id='emailResult' ></div>
+	<div>
+		<input type='text' id='inputPN' ></input>
+		<button onclick='fnClickPN();' >버튼</button>
+	</div>
+	<div id='pnResult' ></div>
+	<script>
+		function fnClickE() {
+			let email = document.getElementById('inputEmail').value;
+			let reg = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_'{|}~-]+@[0-9a-zA-Z]([-]?[0-9a-zA-Z]){0,63}.[a-zA-Z]{2,3}$/);
+			
+			
+			if(reg.test(email)) {
+				document.getElementById('emailResult').innerText = email;
+			} else {
+				alert('형식에 맞지 않는 이메일입니다.');
+			}
+		}
+		
+		function fnClickPN() {
+			let pn = document.getElementById('inputPN').value;
+			let reg = new RegExp(/^(\d{2,3})-(\d{3,4})-(\d{4})$/);
+			
+			
+			if(reg.test(pn)) {
+				document.getElementById('pnResult').innerText = pn.replace(reg,"$1$2$3");
+			} else {
+				alert('형식에 맞지 않는 전화번호입니다.');
+			}
+		}
+	</script>
+</body>
